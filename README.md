@@ -11,6 +11,19 @@ Can a fixed correction learned from historical forecast errors improve NESO's da
 
 The backtest figures come from the author's historical notebook run. The complete interval export will be added separately. The [16 November comparison](results/2026-11-16-reconstructed.csv) applies the frozen rule to archived forecasts. It is a retrospective check. Live scoring uses records saved before delivery.
 
+## 16–18 November 2026: week to date
+
+| UK delivery date | Half-hours | NESO MAE (MW) | Corrected MAE (MW) | NESO bias (MW) | Corrected bias (MW) | MAE reduction |
+|---|---:|---:|---:|---:|---:|---:|
+| 16 Nov | 4 | 579.25 | 648.16 | -486.25 | -611.29 | -11.9% |
+| 17 Nov | 4 | 327.75 | 290.00 | +18.75 | -106.29 | +11.5% |
+| 18 Nov | 4 | 506.75 | 381.71 | +506.75 | +381.71 | +24.7% |
+| **16–18 Nov** | 12 | 471.25 | 439.96 | +13.08 | -111.96 | +6.6% |
+
+MAE measures the average absolute miss. Bias is the average of actual minus forecast, so positive means an underforecast and negative means an overforecast. Across these 12 intervals, v1 lowered MAE by 31.29 MW but increased the magnitude of bias. On 16 November, MAE worsened.
+
+[Download the 12 half-hour comparisons](results/2026-11-16-to-18-reconstructed.csv). The original NESO forecasts were selected from Elexon publications available by 09:15 UK time on the previous day. The corrected values were reconstructed using the frozen v1 offsets, with Elexon Initial National Demand Outturn as actual demand. Coverage is 12 of 28 planned intervals for the week. The reconstruction does not verify that the corrected forecasts were recorded before delivery.
+
 ## One night first
 
 From the extracted folder in Command Prompt:
